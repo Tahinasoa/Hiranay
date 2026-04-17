@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Hiranay</title>
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='index.css')}}" />
+</head>
+
+<body>
+  <div id="container">
+    <div id="navigation">
+      <div class="navigationLabel" id="navigationLabel">
+        Amboaran-kira
+      </div>
+      <div class="navigation-content show">
+        {% for book in data%}
+        <button class="btn-book">{{ book["bookName"] }}</button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div id="titles">
+      <input type="text" id="filter" placeholder="Filtre" />
+      <div>
+        {% for book in data %}
+        <div class="titleContainer" data-book="{{ book["bookName"] }}">
+          {%for song in book["songs"] %}
+          <div class="title" data-href="{{ song["path"] }}">{{ song["title"] }}<a class="editorLink" href="{{ song["editorUrl"] }}"></a></div>
+          {% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <script src="{{url_for('static', filename='index.js')}}"></script>
+</body>
+</html>

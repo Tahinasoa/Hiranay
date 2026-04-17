@@ -1,0 +1,160 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #e0e0ff;
+    height: 90%;
+    margin: 10px;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+/* Navigation and drop down*/
+#navigation {
+    position: relative;
+    width : 20vw ;
+    display: inline-block;
+    padding: 0px;
+}
+#navigation.mobile{
+    width: 95%;
+    margin: auto;
+}
+
+.navigationLabel {
+    padding: 15px 5px;
+    background-color: #3498DB;
+    color: white;
+    font-size: 16px;
+    border: none;
+    text-align: center;
+}
+
+/* Dropdown button on hover & focus */
+.navigationLabel:hover,
+.navigationLabel:focus {
+    background-color: #2980B9;
+}
+/* Dropdown Content (Hidden by Default) */
+.navigation-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width : 100% ;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 0px;
+    z-index: 1;
+}
+
+/* btn-book inside the dropdown */
+.btn-book
+{
+    color: #333333;
+    background-color: white;
+    border: none;
+    padding: 8px 5px;
+    margin-bottom: 1px;
+    width: 100%;
+    text-decoration: none;
+    text-align: left;
+    display: block;
+    font-weight: bold;
+}
+.btn-book[value='selected']{
+    background-color: #a0a0e0;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    display: block;
+}
+
+/*Navigation end*/
+
+#titles {
+    background-color: #f1f1f1;
+    width: 70vw;
+    margin-left: 10px;
+    height: 90vh;
+}
+#titles.mobile {
+    width: 95%;
+    margin: auto;
+}
+
+#filter {
+    display: block;
+    width: 95%;
+    height: 30px;
+    margin: auto;
+    margin-top: 5px;
+    padding: 1%;
+}
+
+.titleContainer {
+    width: 95%;
+    overflow: scroll;
+    margin: auto;
+    margin-top: 5px;
+    display: none;
+    height: calc(90vh - 70px);
+    overflow: scroll;
+}
+
+.title {
+    background-color: white;
+    margin: 1px;
+    padding: 15px 5px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.title:active {
+    background-color: aqua;
+
+}
+
+.editorLink {
+    width: 20px;
+    height: 20px;
+    background-image: url(icons/edit-icon.png);
+    background-size: cover;
+    float: right;
+}
+
+
+
+
+/* Animation of book collection cursor*/
+@keyframes openCursor {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-90deg);
+    }
+}
+
+@keyframes closeCursor {
+    from {
+        transform: rotate(-90deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.cursor {
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
